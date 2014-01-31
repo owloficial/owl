@@ -1,0 +1,13 @@
+{
+  "name": "templates",
+  "_cacheHeaders": {
+    "ETag": "\"a0042-16d1b2-4f0ae927dd4f4\"",
+    "Last-Modified": "Fri, 24 Jan 2014 03:01:19 GMT",
+    "Content-Length": "1495474",
+    "Content-Type": "application/x-gzip"
+  },
+  "_release": "e-tag:a0042-16d",
+  "_source": "http://192.168.122.52/cdn/templates.tar.gz",
+  "_target": "*",
+  "_originalSource": "http://192.168.122.52/cdn/templates.tar.gz"
+}

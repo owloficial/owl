@@ -1,0 +1,15 @@
+<div class="row-fluid" ng-click="configureContainer(layoutData.container);"><h3 class="text-center">{{layoutData.container.name}}</h3></div>
+<div class="row-fluid" style="height:100%">
+	<div class="span12" style="border:1px dashed black; height:100%;" session="1">
+		<div ng-repeat="widget in layoutData.container.widgets | orderBy:'seqno'" class="span{{widget.column_template_number}}" style="height: {{widget.height}}%">
+			<div class="row-fluid" ng-switch on="widget.template_id" style="height: 100%">
+				<div ng-switch-when="null" class="span12" style="height: 100%" ng-click="selectWidgetLocation($index);">
+					<div style="border: 1px solid black; height:100%"></div>
+				</div>
+				<div ng-switch-default class="span12" style="height: 100%" ng-click="configureWidget(widget)">
+					<div ng-include src="getTemplate('widgets', widget.template_id)" style="height: 100%"></div>
+				</div>		
+			</div>
+		</div>
+	</div>	
+</div>

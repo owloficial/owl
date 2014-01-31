@@ -1,0 +1,5 @@
+
+<div zh-container-events ng-repeat="widget in templateManager.container.widgets | hasWidgetToExpand"
+     ng-include="templateManager.templateUrl+widget.template" class="zh-content col-{{widget.width}}"
+     style="height: {{widget.height}}" ng-show="widget.isVisible">
+</div>

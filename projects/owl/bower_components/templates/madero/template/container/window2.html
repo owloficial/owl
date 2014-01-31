@@ -1,0 +1,9 @@
+
+<section zh-scroller style="position: fixed;top: 45px;bottom: 0px;overflow-y: auto;">
+	<div>
+		<div zh-container-events ng-repeat="widget in templateManager.container.widgets | hasWidgetToExpand"
+		     ng-include="templateManager.templateUrl+widget.template" class="zh-content col-{{widget.width}}"
+		     style="height: {{widget.height}}">
+		</div>
+	</div>
+</section>

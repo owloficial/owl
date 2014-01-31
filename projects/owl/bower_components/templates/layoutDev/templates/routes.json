@@ -1,0 +1,13 @@
+ {
+    "/zeedhi-developer/create" : "\\Controller\\Controller::create",
+    "/zeedhi-developer/retrieve" : "\\Controller\\Controller::retrieve",
+    "/zeedhi-developer/retrieve_names" : "\\Controller\\Controller::retrieveNames",
+    "/zeedhi-developer/update" : "\\Controller\\Controller::update",
+    "/zeedhi-developer/delete" : "\\Controller\\Controller::delete",
+    "/zeedhi-developer/retrieve_templates": "\\Controller\\Controller::retrieveTemplates",
+    "/zeedhi-developer/retrieve_datasources": "\\Controller\\Controller::retrieveDatasources",
+    "/zeedhi-developer/retrieve_actiongroups": "\\Controller\\Controller::retrieveActiongroups",
+    "/zeedhi-developer/retrieve_datacolumns": "\\Controller\\Controller::retrieveDatacolumns",
+    "/zeedhi-developer/retrieve_fieldgroups": "\\Controller\\Controller::retrieveFieldgroups",
+    "/zeedhi-developer/retrieve_masks": "\\Controller\\Controller::retrieveMasks"
+ }

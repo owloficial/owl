@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>madero em casa</title>
+		<meta charset="utf-8">
+		<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="shortcut icon" href="images/favicon.png"> 
+		<link rel="apple-itouch-icon" href="images/favicon.png">
+		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/fonts.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript">
+			function toggle_list_item(a) {
+				var listItem = a.parentElement,
+					valorDiv = listItem.querySelector('.valor_pagamento'),
+					valorDivStyle = window.getComputedStyle(valorDiv);
+				if (valorDivStyle.display == "none") {
+					valorDiv.style.display = "block";
+					var input = valorDiv.querySelector('input');
+					input.focus();
+					input.select();
+				} else {
+					valorDiv.style.display = "none";
+				};
+			}
+
+			function pagamentoChange(input) {
+				var value = input.value,
+					li = input.parentElement.parentElement;
+
+				if (value != '' && parseFloat(value) > 0) {
+					li.classList.add('pagamento_has_value');
+				} else {
+					li.classList.remove('pagamento_has_value');
+				}
+
+				if (value != '' && parseFloat(value) > 71.3) {
+					document.querySelector('#resumo_pagamentos .pagamento_falta').style.display = "none";
+					document.querySelector('#resumo_pagamentos .pagamento_troco').style.display = "block";
+				}
+			}
+		</script>
+	</head>
+	<body class="form_body">
+		<div id="form_header">
+			<div id="form_header_menu"></div>
+			<div id="form_header_logo"></div>
+			<a href="form_sacola.html">
+				<div id="form_header_bag"></div>
+				<div id="form_header_bag_count">2</div>
+			</a>
+		</div>
+
+		<div id="wizard_indicator">
+			<div id="wizard_step1" class="wizard_step wizard_step_first wizard_step_past">
+				<div class="wizard_step_number">1</div>
+				<div class="wizard_step_text">produtos</div>
+				<div class="wizard_step_arrow"></div>
+			</div>
+			<div id="wizard_step2" class="wizard_step wizard_step_past">
+				<div class="wizard_step_number">2</div>
+				<div class="wizard_step_text">entrega</div>
+				<div class="wizard_step_arrow"></div>
+			</div>
+			<div id="wizard_step3" class="wizard_step wizard_step_active">
+				<div class="wizard_step_number">3</div>
+				<div class="wizard_step_text">pagamento</div>
+				<div class="wizard_step_arrow"></div>
+			</div>
+			<div id="wizard_step4" class="wizard_step wizard_step_last">
+				<div class="wizard_step_number">4</div>
+				<div class="wizard_step_text">confirmação</div>
+			</div>
+		</div>
+
+		<div id="contents_pagamentos">
+			<ul id="pagamentos_list">
+				<li><a href="#" onclick="toggle_list_item(this);">dinheiro</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_1" value="0.00" oninput="pagamentoChange(this);"/>
+				</li>
+				<li><a href="#" onclick="toggle_list_item(this);">redecard mastercard crédito</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_2" value="0.00" />
+				</li>
+				<li><a href="#" onclick="toggle_list_item(this);">redecard visa electron</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_3" value="0.00" />
+				</li>
+				<li><a href="#" onclick="toggle_list_item(this);">redecard visa crédito</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_4" value="0.00" />
+				</li>
+				<li><a href="#" onclick="toggle_list_item(this);">cortesias</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_5" value="0.00" />
+				</li>
+				<li><a href="#" onclick="toggle_list_item(this);">pagamento online</a>
+					<div class="valor_pagamento">valor <input type="number" name="valor_pagamento_6" value="0.00" />
+				</li>
+			</ul>
+		</div>
+
+		<div id="resumo_pagamentos">
+			<div class="pagamento_total_produtos">total de produtos<span class="confirm_pagamento_value">R$ 62,40</span></div> 
+			<div class="pagamento_taxa_entrega">taxa entrega<span class="confirm_pagamento_value">R$ 8,90</span></div> 
+			<div class="pagamento_total">TOTAL<span class="confirm_pagamento_value">R$ 71,30</span></div> 
+			<div class="pagamento_falta">FALTAM<span class="confirm_pagamento_value">R$ 71,30</span></div> 
+			<div class="pagamento_troco">TROCO<span class="confirm_pagamento_value">R$ 0,00</span></div> 
+		</div>
+
+		<div id="form_footer">
+			<div id="prev_step"><a href="form_entrega.html">&lt; voltar</a></div>
+			<div id="next_step"><a href="form_confirmacao.html">próximo passo</a></div>
+		</div>
+	</body>
+</html>

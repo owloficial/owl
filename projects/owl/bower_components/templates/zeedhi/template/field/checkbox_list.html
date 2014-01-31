@@ -1,0 +1,10 @@
+<label>{{ field.label|i18n:words:lang }}</label>
+
+<div data-ng-repeat="row in field.dataSource.data track by $index" class="zh-checkbox">
+	<input zh-style zh-events type="checkbox" style="-webkit-appearance: checkbox;"
+    zh-push-value="field.name" data-ng-bind="row[field.name]" id="cb-{{$index}}" />
+	<label for="cb-{{$index}}">
+		<span></span>
+		<p data-ng-bind="row[field.name]"></p>
+	</label>
+</div>

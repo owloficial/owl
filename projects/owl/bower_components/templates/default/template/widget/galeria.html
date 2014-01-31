@@ -1,0 +1,16 @@
+<span zh-widget-events  >
+    <span style="height:500px; overflow:auto;">
+      <span ng-repeat="row in widget.dataSource.data | unique:'category'" width="30px" style="float:left; padding:4px; marging-button:30px; border: solid 1px;">
+          <div><img ng-src="{{row['img_category']}}" alt="" style="height:75px; width:150px;" onclick="$('.child:not(.{{row['category']}})').hide(); $('.{{row['category']}}').toggle()"/></div>
+          <ol style=" background: white; width: 400px; padding: 10px; position:absolute; backgound:#ffffff; height:400px; margin-top:10px; overflow:auto; display:none; clear:both;" class="child {{row['category']}}">
+            <li ng-repeat="row in widget.dataSource.data | filter:{category:row['category']} " ng-click="setFormData(widget, widget.dataSource.data.indexOf(row));" style="float:left; padding:4px; marging-button:10px;">
+              <span >
+                <img ng-src="{{row['img']}}" alt="" width="100px"><br/>
+                <span>Descricao : {{row['name']}}</span><br/>
+                <span>Preco : {{row['price']|currency}}</span>
+              </span>
+            </li>
+          </ol>        
+      </span>
+    </span>
+</span>

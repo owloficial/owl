@@ -1,0 +1,12 @@
+<span>
+	<label>{{field.label}}</label>
+	<input ng-click="configureField(field)"  zh-events zh-mask zh-validate widget-name="{{tab.name}}" ng-readonly="field.readOnly" name="{{field.name}}" id="{{field.name}}" type="text" ng-model="tab.currentRow[field.name]"/>
+    <span class="help-block">
+        <span ng-show="tab.currentRow.$error[field.name].length>0">
+            <span class="label label-warning" ng-repeat="error in tab.currentRow.$error[field.name]">
+                {{error.message}}
+            </span>
+        </span>
+    </span>
+	<!--<span class="help-block">Example block-level help text here.</span>-->
+</span>

@@ -1,0 +1,67 @@
+<header class="zh-header">
+	
+	<div class="zh-menuHeader" ng-show="templateManager.project.showMenu" data-menu="hide" zh-menu-control>
+		<i class="icon list32"></i>
+	</div>
+
+	<section class="zh-header-container-label">
+		<p data-ng-bind="templateManager.container.label"></p>
+	</section>
+
+	<section class="zh-headerComponents">
+		<!-- Alter astesio jose remove user header -->
+		<!-- <div class="zh-back" data-ng-click="back()" >
+			<img src="../../../assets/images/icons/arrow-back.png" class="zh-backImg" />
+			<p data-ng-bind="templateManager.container.label"></p>
+		</div>  -->
+
+		<ul class="zh-headerComponents zh-action-always">
+			<li ng-repeat="action in templateManager.container.getActions() | filter:{showAsAction : 'always'}" class="zh-plus">
+				<a href="#" data-ng-click="actionClick(action, action.widget)">
+					<i class="action icon" data-ng-class="action.icon"></i>
+				</a>
+			</li>
+			<li ng-if="templateManager.wizard" class="zh-plus">
+				<a href="#" data-ng-click="previous()">
+					<i class="prev24 icon" ></i>
+				</a>
+			</li>	
+			<li ng-if="templateManager.wizard" class="zh-plus">
+				<a href="#" data-ng-click="next()">
+					<i class="next24 icon"></i>
+				</a>
+			</li>
+			<li data-zh-toggle-class class="zh-plus" data-ng-show="templateManager.container.getActions('never').length > 0"> 
+				<a href="#"><i  class='action icon more24'></i></a>
+				<ul class="zh-headerComponents zh-action-never dropdown-menu-action">
+					<li  data-ng-repeat="action in templateManager.container.getActions() | filter:{showAsAction : 'never'}">
+						<a href="#" data-ng-click="actionClick(action, action.widget)">
+							<i class="action icon" data-ng-class="action.icon"></i>
+							<span data-ng-bind="action.label"></span>
+						</a>
+					</li>				
+				</ul>				
+			</li>			
+		</ul>
+		<ul class="zh-headerComponents zh-action-if-room " data-ng-show="templateManager.container.getActions('ifRoom').length > 0">
+			<li ng-repeat="action in templateManager.container.getActions() | filter:{showAsAction : 'ifRoom'}" class="zh-plus" data-ng-click="actionClick(action, action.widget)">
+				<i class="action icon" data-ng-class="action.icon"></i>
+			</li>
+		</ul>		
+<!-- 		<div class="zh-headerActions">
+			<div class="zh-headerRefresh">
+				<i class="icon refresh"></i>
+			</div>
+
+			<div class="zh-headerSearch">
+				<input type="text" class="searchInput">
+				<input type="button" class="searchAdvanced">
+			</div>
+				
+			<div class="zh-logoProduct">
+				<img src="../../../templates/zeedhi/images/logoProduct.png" class="zh-logoProductImg" />
+			</div>
+		</div> -->
+
+	</section>
+</header>

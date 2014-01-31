@@ -1,0 +1,79 @@
+<div class="controls controls-row">
+	<label>Label</label>
+	<input class="span12" type="text" ng-model="configField.label"/>
+	<label>Name</label>
+	<input class="span12" type="text" ng-model="configField.name"/>
+	<label>Template</label>
+	<select class="span12" ng-model="configField.template_id" ng-options="field.template_id as field.name for field in templates.fields"></select>
+	<label>Sequence</label>
+	<input class="span12" type="text" ng-model="configField.seqno"/>
+	<label>Datacolumn</label>
+	<select class="span12" ng-model="configField.datacolumn_id" ng-options="dtc.datacolumn_id as dtc.name for dtc in datacolumns"></select>
+	<label>Mask</label>
+	<select class="span12" ng-model="configField.mask_id" ng-options="mask.mask_id as mask.name for mask in masks"></select>
+	<label>New Line</label>
+	<select class="span12" ng-model="configField.newline">
+		<option value=""></option>
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Default Value</label>
+	<input class="span12" type="text" ng-model="configField.default_value"/>
+	<label>Fieldgroup</label>
+	<select class="span12" ng-model="configField.fieldgroup_id" ng-options="fieldgroup.fieldgroup_id as fieldgroup.name for fieldgroup in fieldgroups"></select>
+	<label>Required</label>
+	<select class="span12" ng-model="configField.isrequired">
+		<option value=""></option>
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Is Group By Field</label>
+	<select class="span12" ng-model="configField.is_groupby_field">
+		<option value=""></option>
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Column Template Number</label>
+	<input class="span12" type="number" ng-model="configField.column_template_number"/>
+	<label>Description</label>
+	<input class="span12" type="text" ng-model="configField.description"/>
+	<label>Help</label>
+	<input class="span12" type="text" ng-model="configField.help"/>
+	<label>Displayed in Form</label>
+	<select class="span12" ng-model="configField.properties.isdisplayed_form"	>
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Displayed in Grid</label>
+	<select class="span12" ng-model="configField.properties.isdisplayed_grid">
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Readonly</label>
+	<select class="span12" ng-model="configField.properties.isreadonly">
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Readonly on Update</label>
+	<select class="span12" ng-model="configField.properties.isreadonly_onupdate">
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Displayed in Grid Min</label>
+	<select class="span12" ng-model="configField.properties.isdisplaied_gridmin">
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Stored in Session</label>
+	<select class="span12" ng-model="configField.properties.isstored_insession">
+		<option value="Y">Yes</option>
+		<option value="N">No</option>
+	</select>
+	<label>Max Length</label>
+	<input class="span12" type="number" ng-model="configField.properties.max_length">
+	<label>Sequence in Grid</label>
+	<input class="span12" type="number" ng-model="configField.properties.seqno_grid">
+
+	<button class="btn btn-success btn-mini" type="button" ng-click="saveFieldConfig();">Save</button>    
+    <button class="btn btn-danger btn-mini" type="button" ng-click="removeField(activeField);">Remove</button>    
+</div>				

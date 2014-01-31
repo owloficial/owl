@@ -1,0 +1,7 @@
+{
+    "widgetTypes": [
+        {"name": "GRID", "widget_type_id": 1},
+        {"name": "FORM", "widget_type_id": 2},
+        {"name": "GALLERY", "widget_type_id": 3}
+    ]
+}

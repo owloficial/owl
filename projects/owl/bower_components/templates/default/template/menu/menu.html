@@ -1,0 +1,28 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+		 	<a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+			 	<span class="icon-bar">
+			 	</span>
+			 	<span class="icon-bar">
+			 	</span>
+			 	<span class="icon-bar">		 		
+			 	</span>
+		 	</a>
+		 	<a href="#" class="brand">{{project.label}}</a>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<ul ng-repeat="menu in templateManager.project.menus" ng-switch on="menu.hasChild" class="nav" zh-acl="menu">
+					<li ng-switch-when="false" ng-show="menu.isVisible">
+						<a href="#{{menu.containerName}}" ng-class="{disabled: menu.readOnly}" ng-click="openWindow(menu.containerName,menu.isWizard)">
+							{{menu.label}}
+						</a>
+					</li>
+					<li  class="dropdown" ng-switch-when="true" ng-show="menu.isVisible">
+						<a data-toggle="dropdown" class="dropdown-toggle"  href="#">{{menu.label}}<strong class="caret"></strong></a>
+						<ul ng-include src="templateManager.templateUrl+templateManager.project.menuChildTemplate" class="dropdown-menu"></ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

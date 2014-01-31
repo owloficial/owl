@@ -1,0 +1,23 @@
+{
+    "projectName": "tecdiet",
+    "generatedPath": "../temp",
+    "json": {
+        "sourcePath": "../json/"
+    },
+    "database": {
+        "entityManager" : {
+            "metadata_driver" : "xml",
+            "is_dev_mode" : "true",
+            "path" : "../src/DCM/"
+        },
+        "connection" : {
+            "driver"   : "oci8",
+            "user"     : "ZEEDHI_MARCELO",
+            "password" : "ZEEDHI",
+            "host"     : "192.168.122.41",
+            "port"     : "1521",
+            "dbname"   : "ORCL",
+            "charset"  : "AL32UTF8"
+        }
+    }
+}

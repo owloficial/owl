@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>madero em casa</title>
+		<meta charset="utf-8">
+		<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="shortcut icon" href="images/favicon.png"> 
+		<link rel="apple-itouch-icon" href="images/favicon.png">
+		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/fonts.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+		<script type="text/javascript">
+			var QueryString = function () {
+			  // This function is anonymous, is executed immediately and 
+			  // the return value is assigned to QueryString!
+			  var query_string = {};
+			  var query = window.location.search.substring(1);
+			  var vars = query.split("&");
+			  for (var i=0;i<vars.length;i++) {
+			    var pair = vars[i].split("=");
+			    	// If first entry with this name
+			    if (typeof query_string[pair[0]] === "undefined") {
+			      query_string[pair[0]] = pair[1];
+			    	// If second entry with this name
+			    } else if (typeof query_string[pair[0]] === "string") {
+			      var arr = [ query_string[pair[0]], pair[1] ];
+			      query_string[pair[0]] = arr;
+			    	// If third or later entry with this name
+			    } else {
+			      query_string[pair[0]].push(pair[1]);
+			    }
+			  } 
+			    return query_string;
+			} ();
+
+			function toggle_obs(a) {
+				if (a.classList.contains('product_obs_selected')) {
+					a.classList.remove('product_obs_selected');
+				} else {
+					a.classList.add('product_obs_selected');
+				}
+			}
+		</script>
+	</head>
+	<body class="form_body">
+		<div id="form_header">
+			<div id="form_header_menu"></div>
+			<div id="form_header_logo"></div>
+			<a href="form_sacola.html">
+				<div id="form_header_bag"></div>
+				<div id="form_header_bag_count">2</div>
+			</a>
+		</div>
+
+		<div id="contents_product_detail">
+			<img class="product_img" src="images/empty.png" onload="this.src='images/P'+QueryString.code+'.jpg';" onerror="this.onload=null; this.src='images/Pnotfound.png';"/>
+			<div class="product_name"><script type="text/javascript">document.write(decodeURIComponent(QueryString.name));</script></div>
+			<div class="product_price">R$ <script type="text/javascript">document.write(QueryString.price);</script>
+				<span class="product_price_unit">unidade</span>
+			</div>
+	 		<div class="form_product_qtty">
+	 			<div class="product_qtty_minus">-</div>
+	 			<div class="product_qtty_value">1</div>
+	 			<div class="product_qtty_plus">+</div>
+	 			<div class="product_qtty_total">R$ <script type="text/javascript">document.write(QueryString.price);</script>
+	 				<span class="product_price_unit">total</span>
+ 				</div>
+	 		</div>
+
+	 		<div id="form_product_obs" >
+	 			<script type="text/javascript">
+ 					if (QueryString.obs == 'y') {
+ 						var obs = ['s/ alface', 's/ salada', 's/ fritas', 'cortado em 2', 'sem maionese', 'pão carne e queijo', 
+ 								   'quero imã de geladeira', 'sache extra'];
+						obs.forEach(function(element) {
+							document.write('<a href="#" class="product_obs" onclick="toggle_obs(this);">' + element + '</a>');
+						});   
+ 					}
+	 			</script>
+	 		</div>
+ 		</div>
+
+ 		<div id="form_product_add"><a href="form_produtos.html">adicionar</a></div>
+
+		<div id="form_footer">
+			<div id="prev_step"><a href="form_produtos.html">&lt; produtos</a></div>
+		</div>
+	</body>
+</html>

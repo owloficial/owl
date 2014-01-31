@@ -1,0 +1,13 @@
+<li class="zh-menu-dropdowm-item" ng-repeat="menu in menu.menus | filter:{label:menuFilter}" ng-switch on="menu.hasChild">
+    <a ng-if="menu.hasChild == false" href="#" ng-click="openWindow(menu.windowName,menu.isWizard)">
+        <span class="notification"></span>
+        <i class="icon"></i>
+        <b class="label">{{menu.label}}</b>
+    </a>    
+    <a ng-if="menu.hasChild == true" href="#">
+        <span class="notification"></span>
+        <i class="icon"></i>
+        <b class="label">{{menu.label}}</b>
+    </a>    
+    <ul ng-if="menu.hasChild == true" class="zh-menu-dropdowm-item group" ng-include="templateManager.templateUrl+templateManager.project.menuChildTemplate"></ul>
+</li>    

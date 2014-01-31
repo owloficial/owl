@@ -1,0 +1,13 @@
+<span>
+	<label>{{field.label}}</label>
+	<textarea ng-click="configureField(field)" zh-events zh-mask zh-validate ng-readonly="field.readOnly" name="{{field.name}}" id="{{field.name}}" style="width : 84%" type="text" ng-model="tab.currentRow[field.name]">
+	</textarea>
+	<span class="help-block">
+		<span ng-show="tab.currentRow.$error[field.name].length>0">
+			<span class="label label-warning" ng-repeat="error in tab.currentRow.$error[field.name]">
+				{{error.message}}
+			</span>
+		</span>
+	</span>
+
+</span>

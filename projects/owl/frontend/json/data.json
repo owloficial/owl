@@ -1,0 +1,8 @@
+{
+   "paciente" : {
+       "rest": true,
+       "localStorage": false,
+       "name": "/paciente",
+       "data": [] 
+   }
+}

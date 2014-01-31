@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charset="UTF-8" />
+        <title>{{ report.getTitle() }}</title>
+        <meta name="description" content="description" />
+        <meta name="keywords" content="key, worlds" />
+        <meta name="author" content="Astésio José do Carmo Júnior" />
+        <meta name="generator" content="HTML-Kit 292" />
+        <meta name="robots" content="all" />
+        <link rel="stylesheet" type="text/css" href="result/css/style.css">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            {% block page_header %}{% endblock page_header %}
+            {% block content %}{% endblock content %}
+            {% block page_footer %}{% endblock page_footer %}
+
+            <div class="group-footer-logos">
+                <div class="version-report">
+                    <p>Relatorio: {{ report.getName() }}</p>
+                    <p>Versão: {{report.getVersion()}}</p>
+                </div>
+                <div class="soon-odhen">
+                    <figure>
+                        <img src="{{ logo.getEnterpriseLogo() }}" alt="" />
+                    </figure>
+                </div>
+                <div class="soon-forSale">
+                    <figure>
+                        <img src="{{ logo.getProductLogo() }}" alt="" />
+                    </figure>
+                </div>
+                <div class="date-report">
+                    <p>{{ report.getIssuanceDate() }}</p>
+                    <p>{{ report.getIssuanceHour() }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

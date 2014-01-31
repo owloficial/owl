@@ -1,0 +1,22 @@
+<section class="zh-widget widget-{{widget.name}}" zh-widget-events>
+	
+	<div ng-include src="templateManager.templateUrl+'component/actionsForm.html'" class="zh-actions"></div>
+
+
+	<div ng-include src="templateManager.templateUrl+templateManager.project.componentMessages">
+	</div>
+
+	<!-- <article class="container"> -->
+
+	<div>
+		<div class="zh-inner">
+			<form class="form" novalidate zh-scroller>
+				<fieldset class="fieldset">
+					<div ng-repeat="field in widget.fields" ng-include src="templateManager.templateUrl+field.template" class="field_{{field.name}} col-{{field.class}}" ng-class="{sameLine: field.sameLine}">
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<!-- </article> -->
+</section>

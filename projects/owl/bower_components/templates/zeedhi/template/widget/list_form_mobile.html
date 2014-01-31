@@ -1,0 +1,78 @@
+<section class="zh-widget" zh-widget-events>
+	<div ng-include src="templateManager.templateUrl+'component/actionsGrid.html'" class="zh-actions"></div>
+
+	<!-- <article class="container"> -->
+	<div class="zh-scroller" zh-scroller style="overflow: hidden;">
+            
+		<div class="zh-inner">
+                <input  data-ng-model='widget.filterCriteria' placeholder="Buscar {{widget.grid.columns[0].label}}" class="zh-mobile-field-search" />
+			<ul class="list_widget">
+				<li ng-repeat="row in widget.dataSource.data | startsWith: widget.grid.columns[0].name:widget.filterCriteria" zh-grid-row >
+						<img ng-if="widget.fields[0].name=='img'"  ng-src="{{widget.fields[0].label|i18n:words:lang}}" />
+						<span data-ng-init='column = widget.grid.columns[0]' data-zh-style>
+							<div class="list_description">
+								{{row[widget.grid.columns[0].name]|columnFormat:column}}
+								<span ng-show="widget.grid.columns[0]">:</span>
+							</div>
+							<span class='list_value'>
+								<span class='list_value_label'>
+									{{widget.grid.columns[5].label|i18n:words:lang}}  
+									<span ng-show="widget.grid.columns[5].label">:</span>
+								</span>
+								<span class='list_value_value'>
+									{{row[widget.grid.columns[5].name]|columnFormat:column}}
+								</span>
+							</span>
+						</span>
+						<span>
+						<!-- 	<div>
+								{{widget.grid.columns[1].label|i18n:words:lang}}: {{row[widget.grid.columns[1].name]|columnFormat:widget.grid.columns[1]}}
+								<span class='list_value'>
+									<span class='list_value_label'>
+										{{widget.grid.columns[2].label|i18n:words:lang}} : 
+									</span>
+
+									<span class='list_value_value' data-ng-bind='row[widget.grid.columns[2].name]|columnFormat:column'></span>
+								</span>
+							</div> -->
+						</span>
+						<span>
+							<div>
+								{{widget.grid.columns[3].label|i18n:words:lang}}
+								<span ng-show="widget.grid.columns[3].label">:</span>
+								<!-- {{row[widget.grid.columns[3].name]|columnFormat:widget.grid.columns[3]}} -->
+								<span class='list_value'>
+									<span class='list_value_label'>
+										<!-- {{widget.grid.columns[4].label|i18n:words:lang}} -->  
+										<!-- <span data-ng-show="widget.grid.columns[4].label">:</span> -->
+									</span>
+									<!-- <span class='list_value_value' ng-show="widget.grid.columns[4].label"> -->
+										<!-- {{row[widget.grid.columns[4].name]|columnFormat:column}} -->
+								</span>
+							</div>
+						</span>						
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- </article> -->
+</section>
+<section class="zh-widget slideGridForm" zh-slide-form style="height: 100%">
+	<div ng-include src="templateManager.templateUrl+'component/actionsForm.html'" class="zh-actions"></div>
+
+	<!-- <article class="container"> -->
+	<div class="zh-scroller">
+		<div class="zh-inner">
+			<table zh-widget-events  cellspacing="0" cellpadding="0" class="table" width="100%">
+			</table>
+			<form class="form" novalidate>
+				<fieldset>
+					<legend>{{widget.label}}</legend> 
+					<div ng-repeat="field in widget.fields" ng-include src="templateManager.templateUrl+field.template" class="field_{{field.name}} col-{{field.class}}" ng-class="{sameLine: field.sameLine}">
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<!-- </article>	 -->
+</section>

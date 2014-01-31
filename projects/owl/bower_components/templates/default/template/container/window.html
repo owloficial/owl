@@ -1,0 +1,14 @@
+<span class='window' zh-container-events  zh-acl="window">
+	<span ng-repeat="widget in container.widgets">
+		<div class="navbar">
+		  <div class="navbar-inner">
+	              <span ng-repeat="action in widget.actions" ng-show="action.isVisible">
+	              	<a href="#" class="btn btn-primary" ng-click="actionClick(action, widget)">{{action.label}}</a>
+	              </span>
+		  </div>
+		</div>
+		<span ng-include="templateManager.templateUrl+widget.template" ng-show="widget.isVisible"></span>
+		<div id="zd-messages" style="border: solid 1px; color: read;">
+		</div>
+	</span>
+</span>

@@ -1,0 +1,17 @@
+ 
+	<div ng-show="field.isVisible">
+		<label>
+			{{field.label|i18n:words:lang}}
+		</label>
+		<input zh-style zh-events zh-mask zh-validate ng-readonly="field.readOnly" name="{{field.name}}" id="{{field.name}}" type="hidden" ng-model="widget.currentRow[field.name]"/>
+		<iframe src="{{templateUrl}}/file_iframe.html" data-value="" onload="var myIframeWin = this.contentWindow || this.contentDocument; $('#{{field.name}}').val(myIframeWin.document.body.innerHTML).change();">
+		</iframe>
+	</div>
+	<span class="help-block">
+		<span ng-show="widget.currentRow.$error[field.name].length>0">
+			<span class="label label-warning" ng-repeat="error in widget.currentRow.$error[field.name]">
+				{{error.message}}
+			</span>
+		</span>
+	</span>
+ 

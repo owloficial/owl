@@ -1,0 +1,50 @@
+<section class="zh-widget" zh-widget-events ng-controller="Controller">
+	<div ng-include src="templateManager.templateUrl+'component/actionsGrid.html'" class="zh-actions"></div>
+	<!-- <article class="container"> -->
+	<div class="zh-scroller" zh-scroller style="height: 100%; overflow: hidden;">
+		<div class="zh-inner">
+            <input  data-ng-model='widget.filterCriteria' placeholder="{{widget.grid.columns[0].label}}" class="zh-mobile-field-search" />
+            <fieldset>
+                <ul class="list_widget" data-ng-init='__checked = [];'>
+                    <li data-zh-style  ng-repeat="row in widget.dataSource.data | startsWith: widget.grid.columns[0].name:widget.filterCriteria" >
+                        <div data-ng-init='column = widget.grid.columns[0]' data-zh-style class="zh-list-mobile-checkbox">
+                            <label>
+                                <b>{{row[widget.grid.columns[0].name]}}</b>
+                            </label>
+                            <input zh-style type="checkbox" style="-webkit-appearance: checkbox;"
+                                  data-ng-bind="{{column.name}}"  ng-model="__checked[row.NMPACIENTE]" data-ng-change="controlActions(widget, __checked)" id="cb-{{$index}}" />
+                            <label for="cb-{{$index}}">
+                                <span></span>
+                            </label>
+                            <div zh-grid-row>
+                                <p>
+                                    {{widget.grid.columns[1].label|i18n:words:lang}} {{row[widget.grid.columns[1].name]}}
+                                    {{widget.grid.columns[2].label|i18n:words:lang}} {{row[widget.grid.columns[2].name]}}
+                                </p>
+                                <p>
+                                    <i>{{row[widget.grid.columns[3].name]}}</i>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </fieldset>
+		</div>
+	</div>
+	<!-- </article> -->
+</section>
+<section class="zh-widget slideGridForm" zh-slide-form style="height: 100%">
+    <!-- <article class="container"> -->
+    <div class="zh-scroller" zh-scroller>
+        <div class="zh-inner">
+            <form class="form" novalidate>
+                <fieldset>
+                    <legend>{{widget.label}}</legend>
+                    <div ng-repeat="field in widget.fields" ng-include src="templateManager.templateUrl+field.template" class="field_{{field.name}} col-{{field.class}}" ng-class="{sameLine: field.sameLine}">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!-- </article>	 -->
+</section>

@@ -1,0 +1,17 @@
+<span>
+	<div ng-show="field.isVisible">
+		<label>
+			{{field.label|i18n:words:lang}}
+		</label>
+		<textarea zh-style zh-events zh-mask zh-validate ng-readonly="field.readOnly" name="{{field.name}}" id="{{field.name}}" type="text" ng-model="widget.currentRow[field.name]">
+		</textarea>
+	</div>
+	<span class="help-block">
+		<span ng-show="widget.currentRow.$error[field.name].length>0">
+			<span class="label label-warning" ng-repeat="error in widget.currentRow.$error[field.name]">
+				{{error.message}}
+			</span>
+		</span>
+	</span>
+
+</span>

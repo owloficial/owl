@@ -1,0 +1,12 @@
+<div class="formMain bg2">
+    <span>horários de atendimento:</span>
+    <div data-ng-repeat="horario in widget.dataSource.data">
+        <span data-ng-show="horario.horario == '/horarioSemana'">segunda a sexta</span>
+        <span data-ng-show="horario.horario == '/horarioFds'">sábado, domingo e feriado</span>
+        <span data-ng-repeat="hora in horario.name">            
+            <span data-ng-show="$index > 0">e </span> de
+            <span data-ng-bind="formataHora(hora.HRINIATENDELOJA)"></span>            
+            às <span data-ng-bind="formataHora(hora.HRFIMATENDELOJA)"></span>
+        </span>
+    </div>
+</div>

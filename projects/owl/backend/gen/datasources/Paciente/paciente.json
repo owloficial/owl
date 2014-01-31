@@ -1,0 +1,8 @@
+{
+    "Paciente/paciente" : {
+        "tableName" : "PACIENTE",
+        "columns" : [ "CDFILIAL", "CDPACIENTE", "NMPACIENTE" ],
+        "key" : [ "CDPACIENTE", "NRORG" ],
+        "localKey" : [ "CDPACIENTE" ]
+    }
+}

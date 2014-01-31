@@ -1,0 +1,53 @@
+{
+    "memcache": {},
+    "database": {
+        "entityManager" : {
+            "metadata_driver" : "annotation",
+            "class" : "\\Zeedhi\\Data\\Doctrine\\EntityManager",
+            "is_dev_mode" : "true",
+            "path" : "/../src/"
+        },
+        "dataSourceManager" : "\\Temp\\DataSourceManager",
+        "connection" : {
+            "driver"   : "oci8",
+            "user"     : "FACULDADEDOSABOR_555",
+            "password" : "tecnisa",
+            "host"     : "192.168.122.5",
+            "port"     : "1521",
+            "dbname"   : "ORCL",
+            "charset"  : "AL32UTF8",
+            "doctrine_entities_path" : "/../src/"
+        }
+    },
+    "router" : {
+        "baseUri" : "/tecdiet/backend/service/index.php",
+        "notFoundHandler": "\\Zeedhi\\Router\\Handler\\ServiceNotFound",
+        "notFoundListeners": [],
+        "errorHandler" : [
+            {
+                "errorCodes" : "E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR | E_RECOVERABLE_ERROR",
+                "handler" : "\\Controller\\Error\\FatalHandler"
+            },
+            {
+                "errorCodes" : "E_ALL ^ (E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR | E_RECOVERABLE_ERROR)",
+                "handler" : "\\Controller\\Error\\DefaultHandler"
+            }
+        ],
+        "errorListeners" : [
+            {
+                "errorCodes" : "E_ERROR | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR | E_RECOVERABLE_ERROR",
+                "listener" : "\\Controller\\Error\\DefaultListener"
+            }
+        ],
+        "exceptionHandlers" : [
+            {
+                "exception": "\\Exception", 
+                "handler": "\\Zeedhi\\Router\\Handler\\DefaultExceptionHandler"
+            }
+        ],
+        "exceptionListeners" :[
+        ],
+        "securityInterceptors": [
+        ]
+    }
+}

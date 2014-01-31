@@ -1,0 +1,23 @@
+<label class="label_questionary" data-ng-bind='question.description'></label>
+<span data-ng-if='question.error' >
+    <span class="error">Preencha a questão</span>
+</span>
+
+<div class="fields_container" data-ng-repeat='option in question.options'>
+
+	<input type="checkbox" data-ng-model='questionary.answer[question.name]["options"][option.id]' id="{{question.name}}checkbox{{option.id}}" name='{{question.name}}' class="css-checkbox"/>
+	
+	<label for="{{question.name}}checkbox{{option.id}}" class="css-label checkbox-style" data-ng-bind='option.description'></label>
+
+</div>
+
+
+
+<span data-ng-if='question.alternative_option' >
+	<span class='fields_container'>
+		<input data-ng-change='checkIfClean(questionary.answer[question.name], !questionary.answer[question.name]["other_value"])' type="checkbox" id='{{question.name}}checkbox1000000000' data-ng-model='questionary.answer[question.name]["other_value"]' class="css-checkbox"/>	
+		<label for='{{question.name}}checkbox1000000000' class="css-label checkbox-style" data-ng-bind='question.alternative_option_text'></label>
+	</span>
+
+	<input data-ng-model='questionary.answer[question.name]["other_text"]' data-ng-show='questionary.answer[question.name]["other_value"]' type="text" autocomplete="on" placeholder="{{question.alternative_option_text}}" class="input"/>	
+</span>

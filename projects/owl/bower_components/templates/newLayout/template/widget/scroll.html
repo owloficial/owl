@@ -1,0 +1,26 @@
+
+<div id="header">iScroll</div>
+
+<div id="wrapper" zh-scroller scroll-infinito >
+    <div id="scroller">
+		<ul>
+			<li data-ng-repeat="data in widget.dataSource.data">
+				<strong>{{$index}}</strong>
+				<span>{{data.nome}}</span>
+				<span>{{data.telefone}}</span>
+				<span>{{data.rg}}</span>
+				<span>{{data.cpf}}</span>
+				<!-- <span ng-bind="data.nome"></span>
+				<span ng-bind="data.telefone"></span>
+				<span ng-bind="data.rg"></span>
+				<span ng-bind="data.cpf"></span> -->
+			</li>
+			<li id="pullUp">
+				<span class="pullUpIcon"></span>
+				<span class="pullUpLabel" style="display:none;">Solte para atualizar...</span>
+				<span class="pullUpLabelMore">Puxe para ver mais...</span>
+			</li>
+		</ul>
+    </div>
+</div>
+<div id="footer"></div>

@@ -1,0 +1,28 @@
+<div class="row-fluid"><h3 class="text-center">{{layoutData.container.name}}</h3></div>
+<div class="row-fluid">
+	<div class="span4" style="border:1px dashed black; min-height:50px;" session="1" ng-click="selectSection(1);">
+			<div ng-repeat="widget in layoutData.container.widgets | filter:{session_number: 1} | orderBy:'seqno'" seqno="{{widget.seqno}}" class="span{{widget.column_template_number}}" ng-click="configureWidget(widget)">
+				<div class="row-fluid">
+					<div class="span12" ng-repeat="template in templates.widgets|filter:{template_id:widget.template_id}">
+						<div ng-include src="template.template"></div>    
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span8" style="border:1px dashed black; min-height:50px;" session="2" ng-click="selectSection(2);">
+		<div ng-repeat="widget in layoutData.container.widgets | filter:{session_number: 2} | orderBy:'seqno'" seqno="{{widget.seqno}}" class="span{{widget.column_template_number}}">
+			<div>
+				<div class="row-fluid text-right">
+					<button class="btn btn-info btn-mini" type="button" ng-click="configureWidget(widget)">Configure</button>
+					<button class="btn btn-danger btn-mini" type="button" ng-click="removeWidget(widget)">Remove</button>
+				</div>
+				<div class="row-fluid">
+					<div class="span12" ng-repeat="template in templates.widgets|filter:{template_id:widget.template_id}">
+						<div ng-include src="template.template"></div>    
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

@@ -1,0 +1,43 @@
+<div data-ng-init="total = []" zh-widget-events class="contents_pagamentos">
+    <ul id="pagamentos_list" >
+        <li data-ng-repeat="pay in widget.dataSource.data">
+            <a href="#" zh-toggle-class zh-toggle-class-to=".valor_pagamento" zh-update-scroller
+               zh-multiple ng-bind="pay[widget.fields[0].name]"></a>
+            <div class="valor_pagamento">valor
+                <input data-ng-init="pay[widget.fields[1].name] = pay[widget.fields[1].name] ? pay[widget.fields[1].name] : ''; field=widget.fields[1];" 
+                       type="number" name="valor_pagamento_1" data-ng-model="pay[widget.fields[1].name]" data-zh-mask />
+            </div>
+            <div style="display: none;"
+                 data-ng-bind="total[$index] = (pay[widget.fields[1].name] * 100 + total[$index-1])"></div>
+        </li>
+    </ul>
+</div>
+
+<div id="resumo_pagamentos">
+    <div class="pagamento_total_produtos">total de produtos
+        <span class="confirm_pagamento_value">R$ {{formatMoney(getLocalVar("/total")).replace('.',',')}}</span>
+    </div> 
+    <div class="sacola_taxa_entrega">taxa entrega
+        <span class="sacola_total_value">
+            R$ {{formatMoney(getLocalVar('/buscaAtendimento')[0].VRTXENTREGA).replace('.',',')}}
+        </span>
+    </div>
+    <div class="pagamento_total_produtos">
+        TOTAL
+        <span class="confirm_pagamento_value">
+            R$ {{formatMoney((getLocalVar("/total") * 100 + getLocalVar('/buscaAtendimento')[0].VRTXENTREGA * 100) / 100).replace('.',',')}}
+        </span>
+    </div>                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    <div class="pagamento_falta">
+        <span data-ng-show="((getLocalVar('/total') * 100 + getLocalVar('/buscaAtendimento')[0].VRTXENTREGA * 100) / 100 - (total[total.length-1]) / 100) > 0">
+            FALTAM
+        </span>
+        <span data-ng-show="((getLocalVar('/total') * 100 + getLocalVar('/buscaAtendimento')[0].VRTXENTREGA * 100) / 100 - (total[total.length-1]) / 100) <= 0">
+            TROCO
+        </span>
+        <span class="confirm_pagamento_value">
+            R$ {{formatMoney(abs((getLocalVar("/total") * 100 + getLocalVar('/buscaAtendimento')[0].VRTXENTREGA * 100) / 100 - (total[total.length - 1]) / 100)).replace('.',',')}}
+        </span>
+    </div> 
+</div>

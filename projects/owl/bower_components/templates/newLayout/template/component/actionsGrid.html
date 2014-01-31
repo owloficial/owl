@@ -1,0 +1,18 @@
+<div class="zh-actionsContainer" ng-class="{bar:widget.actions.length > 0}">
+	<div ng-include src="templateManager.templateUrl+'component/head.html'"></div>
+	<div class="zh-action" ng-show="widget.actions.length > 0 || !!templateManager.wizard">
+		
+		<ul class="zh-actionContainer">
+			<li ng-repeat="action in widget.actions" ng-show="action.isVisible">
+				<button class="zh-btn zh-btn-info"  ng-click="actionClick(action, widget)">
+					{{action.label}}
+				</button>
+			</li>
+			<li ng-if="templateManager.wizard" class="separator">
+				<button class="zh-btn zh-btn-default" ng-click="previous()">Prev</button>
+				<button class="zh-btn zh-btn-default" ng-click="next()">Next</button>			
+			</li>
+		</ul>
+		
+	</div>
+</div>

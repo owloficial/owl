@@ -1,0 +1,19 @@
+{
+    "zeedhi_project": {
+        "name": "tecdiet",
+        "label": "tecdiet",
+        "showMenu": true,
+        "menuTemplate": "menu/menu.html",
+        "menuChildTemplate": "menu/menu_child.html",
+        "componentMessages": "component/messages.html",
+        "mainWindow": "paciente",
+        "menus": [
+            {
+                "label": "menu",
+                "windowName": "menu",
+                "hasChild": false,
+                "isWizard" : false
+            }
+        ]
+    }
+}

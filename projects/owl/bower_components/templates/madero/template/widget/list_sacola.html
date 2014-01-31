@@ -1,0 +1,36 @@
+<span class="form_body">
+    <div id="contents_sacola" >
+        <div class="item_sacola" data-ng-repeat="row in widget.dataSource.data track by $index">
+            <span data-ng-init="field = widget.fields[4]" zh-events>
+                <a href="#" data-ng-disabled="field.readOnly" class="item_sacola_delete button icon {{field.name}}"  zh-grid-row>
+                    <img src="images/lixeira.png" />
+                </a>
+            </span>
+            <div class="item_sacola_img">
+                <img class="product_img" ng-src="{{row[widget.fields[0].name]}}"
+                     onerror="this.src='images/Pnotfound.png';" />
+            </div>
+            <div class="item_sacola_name">
+                <span data-ng-bind="row[widget.fields[1].name]"></span>
+            </div>
+            <div class="item_sacola_price">
+                <span data-ng-bind="row[widget.fields[2].name]"></span> x R$ 
+                <span data-ng-bind="row[widget.fields[3].name].replace('.',',')"></span>
+            </div>
+        </div>
+        <div id="sacola_valor_total">
+            <div class="sacola_taxa_entrega">taxa entrega
+                <span class="sacola_total_value">R$ 
+                    <span data-ng-bind="formatMoney(getLocalVar('/buscaAtendimento')[0].VRTXENTREGA).replace('.',',')">
+                    </span>                    
+                </span>
+            </div> 
+            <div class="sacola_total">TOTAL
+                <span class="sacola_total_value">R$
+                    <span data-ng-bind="formatMoney(getLocalVar('/total') *1 + getLocalVar('/buscaAtendimento')[0].VRTXENTREGA*1).replace('.',',')">
+                    </span>
+                </span>
+            </div> 
+        </div>
+    </div>
+</span>

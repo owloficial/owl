@@ -1,0 +1,16 @@
+<div class="zh-actionsContainer" ng-class="{bar:widget.actions.length > 0 || wizard}">
+    <div class="zh-action" ng-show="widget.actions.length > 0 || wizard">
+        <div class="zh-actionContainer">
+            <div class="zh-actionBar back">
+                «
+            </div>
+            <ul class="zh-action-container">
+                <li ng-repeat="action in widget.actions" ng-show="action.isVisible">
+                    <button class="zh-btn zh-btn-info" ng-click="actionClick(action, widget)">
+                        {{action.label}}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

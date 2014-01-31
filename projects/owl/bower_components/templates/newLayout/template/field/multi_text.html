@@ -1,0 +1,6 @@
+<label>{{ field.label|i18n:words:lang }}</label>
+<hr />
+<div data-ng-init="widget.currentRow[field.name] = {}" ng-repeat="item in field.dataSource.data">
+    <label>{{ item.name }}</label>
+    <input zh-style zh-events zh-events name="{{field.name}}_{{item.name}}" id="{{field.name}}_{{item.name}}"  type="text" ng-model="widget.currentRow[field.name][item.name]"/>
+</div>

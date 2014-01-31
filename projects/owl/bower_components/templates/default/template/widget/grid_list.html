@@ -1,0 +1,25 @@
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th ng-repeat="column in widget.grid.columns">
+					<h1>{{column.label}}</h1>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in widget.dataSource.data" ng-click="setFormData(widget, $index);">
+				<td ng-repeat="column in widget.grid.columns">
+					<span ng-switch on="column.hasTemplate">
+						<span ng-switch-when="true">
+							<span ng-include src="column.template"></span>
+						</span>
+						<span ng-switch-default>
+							{{row[column.name]}}
+						</span>
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>		
+</div>

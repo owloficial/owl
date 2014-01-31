@@ -1,0 +1,73 @@
+	<style type="text/css">
+		body{
+			font-family: verdana, helvetica, arial, sans-serif;
+		}
+		.subtask-container, .sprint-container-header div{
+			position: relative;
+			width: 28%;
+			margin-right: 5%;
+			float: left;
+			background-color: #fff;
+		}
+		.sprint-container-header div{
+			border-bottom: 2px solid gray;
+			margin-bottom: 1px;
+		}
+		.subtask-container-header{
+			padding-left: 5%;
+		}
+		.subtask-container-body{
+			margin-bottom: 10px;
+			padding-left: 5%;
+		}
+		.subtask-todo{
+			background: linear-gradient(to right, rgba(255,0,0,0.5) 4%,rgba(0,0,0,0) 4%,rgba(0,0,0,0) 100%);
+			background-color: #f3f3f3;
+		}
+		.subtask-done{
+			background: linear-gradient(to right, rgba(0,255,0,0.5) 4%,rgba(0,0,0,0) 4%,rgba(0,0,0,0) 100%);
+			background-color: #f3f3f3;
+		}
+		.subtask-inprogress{
+			background: linear-gradient(to right, rgba(0,0,255,0.5) 4%,rgba(0,0,0,0) 4%,rgba(0,0,0,0) 100%);
+			background-color: #f3f3f3;
+		}
+		.todo-container-label{
+			border-bottom: 2px solid gray;
+			margin-bottom: 1px;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+
+	<div class="story-container" ng-repeat="story in widget.dataSource.data.Atividade">
+		<div class="story-container-header">{{story.DSREFETAREFA}}</div>
+		<div class="story-container-body">
+			<div class="subtask-container subtask-todo">
+				<div ng-repeat="subtask in widget.dataSource.data.ItemAtividade | filter:{IDSITATIVTAR: 'P', ID : story.ID}">
+					<div class="subtask-container-header">{{subtask.title}}</div>
+					<div class="subtask-container-body">
+						{{subtask.NMPROCESSO}}
+					</div>
+				</div>	
+			</div>
+			<div class="subtask-container subtask-inprogress">
+				<div ng-repeat="subtask in widget.dataSource.data.ItemAtividade | filter:{IDSITATIVTAR: 'A', IDSITATIVTAR: 'I', ID : story.ID}">
+					<div class="subtask-container-header">{{subtask.title}}</div>
+					<div class="subtask-container-body">
+						{{subtask.NMPROCESSO}}
+					</div>
+				</div>
+			</div>
+			<div class="subtask-container subtask-done">
+				<div ng-repeat="subtask in widget.dataSource.data.ItemAtividade | filter:{IDSITATIVTAR: 'C', ID : story.ID}">
+					<div class="subtask-container-header">{{subtask.title}}</div>
+					<div class="subtask-container-body">
+						{{subtask.NMPROCESSO}}
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>

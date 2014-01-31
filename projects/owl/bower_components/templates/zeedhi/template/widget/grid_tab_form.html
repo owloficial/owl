@@ -1,0 +1,55 @@
+<section class="zh-widget zh-fixed" style="height: 50%"  zh-widget-events>
+
+	<div ng-include src="templateManager.templateUrl+'component/actionsGrid.html'" class="zh-actions"></div>
+
+	<!-- <article class="container"> -->
+	<div class="zh-scroller" zh-scroller style="height: 100%">
+		<div class="zh-inner">
+			<table cellspacing="0" cellpadding="0" class="table" width="100%">
+				<thead>
+					<tr>
+						<th ng-repeat="column in widget.grid.columns" width="40%" style="width:40%;">
+							<div index="{{$index}}">
+								<span class="icon arrowBottom12"></span>
+								<span class="text">{{column.label}}</span>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in widget.dataSource.data" class="cell{{$index%2 +1}}" zh-grid-row>
+						<td ng-repeat="column in widget.grid.columns">
+							<div>{{row[column.name]}}</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- </article> -->
+</section>
+
+<nav class="zh-tabs" zh-nav-grid-tab-form>
+	
+	<div ng-include src="templateManager.templateUrl+'component/tabs.html'"></div>
+
+</nav>
+
+<section class="zh-widget zh-fixed"  style="height: 50%">
+	
+	<div ng-include src="templateManager.templateUrl+'component/actionsForm.html'" class="zh-actions"></div>
+
+	<!-- <article class="container"> -->
+	<div class="zh-scroller" zh-scroller style="height: 100%">
+		<div class="zh-inner">
+			<form class="form" novalidate>
+				<fieldset>
+					<legend>{{widget.label}}</legend> 
+					<div ng-repeat="field in widget.fields" ng-include src="templateManager.templateUrl+field.template" class="field_{{field.name}} col-{{field.class}}" ng-class="{sameLine: field.sameLine}">
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<!-- </article>	 -->
+</section>

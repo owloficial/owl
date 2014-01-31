@@ -1,0 +1,16 @@
+<span ng-repeat="menu in menu.menus" ng-if="!menu.hasChild">
+	<li >
+	    <a href="#{{menu.windowName}}" ng-click="openWindow(menu.windowName)">
+	    	{{menu.label}}
+		</a>
+	</li>
+</span>
+<span ng-repeat="menu in menu.menus" ng-if="menu.hasChild">
+	<li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+	    	{{menu.label}}
+		</a>
+		<ul ng-include src="project.menuChildTemplate" class="dropdown-menu">
+		</ul>	
+	</li>
+</span>

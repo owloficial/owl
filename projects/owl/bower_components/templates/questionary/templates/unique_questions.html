@@ -1,0 +1,25 @@
+<label class="label_questionary" data-ng-bind='question.description'></label>
+<span data-ng-if='question.error' data-ng-hide='!!questionary.answer[question.name]["value"] || !!questionary.answer[question.name]["other_text"]'>
+    <span class="error">Preencha a questão</span>
+</span>
+
+<div class="fields_container" data-ng-repeat='option in question.options|orderBy:"seqno"'>
+	<p class="radio">
+		<input data-ng-click='hideOtherOption(question)' type="radio" data-ng-model='questionary.answer[question.name]["value"]' value='{{option.value}}' name="{{question.name}}" id="{{question.name}}radio{{option.seqno}}" required />
+	  	<label for="{{question.name}}radio{{option.seqno}}">
+	    	<span class="radioButtonGraph"></span>
+	    	<span data-ng-bind='option.description'></span>
+
+	  	</label>
+	</p>
+</div>
+<div class="fields_container">
+	<p class="radio" data-ng-if='question.alternative_option' >
+		<input  data-ng-click='showOtherOption(question, questionary)'  type="radio" name="{{question.name}}" id="{{question.name}}radio1000000000" data-ng-model="questionary.answer[question.name]['other_value']" value="true"/>
+	  	<label for="{{question.name}}radio1000000000">
+	    	<span class="radioButtonGraph"></span>
+	    	<span data-ng-bind='question.alternative_option_text'></span>
+	  	</label>
+	  	<input data-ng-model="questionary.answer[question.name]['other_text']" data-ng-show="questionary.answer[question.name]['other_value']" type="text" autocomplete="on" placeholder="{{question.alternative_option_text}}" class="input"/>	
+	</p>
+</div>

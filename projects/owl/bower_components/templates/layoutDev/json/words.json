@@ -1,0 +1,43 @@
+{
+	"pt_br" : {
+			"required" : "Requerido",
+			"word_1" : "Projetos",
+			"word_2" : "Nome",
+			"word_3" : "Salvar",
+			"word_4" : "Id Filial",
+			"word_5" : "Nome Filial",
+			"word_6" : "Ok",
+			"word_7" : "Data"
+	},
+	"en_us" : {
+			"required" : "Required",
+			"word_1" : "Projects",
+			"word_2" : "Name",
+			"word_3" : "Save",
+			"word_4" : "Branch Office Id",
+			"word_5" : "Branch Office Name",
+			"word_6" : "Ok",
+			"word_7" : "Date"
+
+	},
+	"es" : {
+			"required" : "Requerido",
+			"word_1" : "Proyetos",
+			"word_2" : "Nombre",
+			"word_3" : "Guardar",
+			"word_4" : "Id Filial",
+			"word_5" : "Nombre Filial",
+			"word_6" : "Ok",
+			"word_7" : "Fecha"
+	},
+	"default" : {
+		"required" : "Requerido",
+		"word_1" : "Projetos",
+		"word_2" : "Nome",
+		"word_3" : "Salvar",
+		"word_4" : "Id Filial",
+		"word_5" : "Nome Filial",
+		"word_6" : "Ok",
+		"word_7" : "Data"
+	}
+}

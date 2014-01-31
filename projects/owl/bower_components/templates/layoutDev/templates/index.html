@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ZeedhiLayout">
+<head>
+    <meta charset="utf-8">
+    <title>Zeedhi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+
+    <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+    <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+    <!--script src="js/less-1.3.3.min.js"></script-->
+    <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+    <!--   
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+    -->
+    <link href="style.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <!--
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.maskMoney.js"></script>
+      <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/scripts.js"></script>
+      <script src="../js/libs/angular.min.js"></script>
+      <script type="text/javascript" src="./../../../assets/js/libs.js"></script>-->
+    <script type="text/javascript" src="./../../../assets/dist/main.js"></script>
+    <script type="text/javascript" src="./../js/layoutDev_adapter.js"></script>
+</head>
+<body>
+<div class="container-fluid" ng-controller="ZeedhiLayoutController">
+     <header ng-include src="templateManager.templateUrl+'component/header.html'" class="zh-header">
+                        <nav class="zh-menu" data-menu="hide" zh-menu-control>
+                            ≡
+                        </nav>
+                        <div class="user"></div>
+                    </header>
+    <div class="row-fluid"><div class="span12"></div></div>
+    <div class="row-fluid">
+        <div class="span2" style="background-color:#f3f3f3;">
+            <ul class="nav nav-list">
+                <li class="nav-header">Containers</li>
+                <li class="draggableContainer" ng-repeat="item in templates.containers" ng-click="setContainer(item);">
+                    <a href="#">{{item.name}}</a>
+                </li>
+                <li class="nav-header">Widgets</li>
+                <li class="draggableWidget" ng-repeat="item in templates.widgets" ng-click="setWidget(item);">
+                    <a href="#">{{item.name}}</a>
+                </li>
+                <li class="nav-header">Load Container (id)</li>
+                <!-- <input type="number" class="select2" zh-reference name="test" ng-model="containerToLoad" style="width: 80%"> -->
+                <select ng-model="containerToLoad" ng-options="container.name for container in containers" style="width: 160px;"></select>
+                <button class="btn btn-success btn-mini" type="button" ng-click="saveLayout();">Save</button>
+                <button class="btn btn-warning btn-mini" type="button" ng-click="loadLayout();">Load</button>
+                <button class="btn btn-danger btn-mini" type="button" ng-click="deleteLayout();">Delete</button>
+            </ul>
+        </div>
+        <div class="span10">
+          <span ng-switch on="configuring">
+            <span ng-switch-when="true">
+              <div class="span9" style="border: 1px solid black;" zhl-widget-container>
+                  <div class="span12" ng-repeat="template in templates.containers|filter:{template_id:layoutData.container.template_id}">
+                      <div ng-include src="template.template" style="height: 100%"></div>
+                  </div>
+              </div>
+              <div class="span3" style="border: 1px solid black;">
+                <span ng-switch on="configType">
+                  <span ng-switch-when="container">
+                    <div ng-include src="'widget/config_container.html'"></div>
+                  </span>
+                  <span ng-switch-when="widget">
+                    <div ng-include src="'widget/config_widget.html'"></div>
+                  </span>
+                  <span ng-switch-when="field">
+                    <div ng-include src="'widget/config_field.html'"></div>
+                  </span>
+                </span>
+              </div>  
+            </span>
+            <span ng-switch-when="false">
+              <div class="span12" style="border: 1px solid black;" zhl-widget-container>
+                  <div class="span12" ng-repeat="template in templates.containers|filter:{template_id:layoutData.container.template_id}">
+                      <div ng-include src="template.template" style="height: 100%"></div>
+                  </div>
+              </div>
+            </span>
+          </span>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

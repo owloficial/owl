@@ -1,0 +1,20 @@
+<div id="confirm_pagamentos" data-ng-init="total = []">
+    <div class="confirm_taxa_entrega">taxa entrega
+        <span class="confirm_pagamento_value">R$ 
+            <span data-ng-init="valorTotal = formatMoney(getLocalVar('/buscaAtendimento')[0].VRTXENTREGA).replace('.',',')" data-ng-bind='valorTotal'></span>
+        </span>
+    </div>
+    <div class="confirm_total">
+        TOTAL
+        <span class="confirm_pagamento_value">
+            R$ {{formatMoney((getLocalVar("/total") * 100 + valorTotal.replace(',','.') * 100)/100).replace('.',',')}}
+        </span>
+    </div>
+    <div class="confirm_forma_pagamento" data-ng-repeat="item in widget.dataSource.data" data-ng-show="item[widget.fields[1].name] > 0">
+        <span data-ng-bind="item[widget.fields[0].name]"></span>
+        <span class="confirm_pagamento_value">
+            R$
+            <span data-ng-bind="formatMoney(item[widget.fields[1].name]).replace('.',',')"></span>
+        </span>
+    </div>
+</div>

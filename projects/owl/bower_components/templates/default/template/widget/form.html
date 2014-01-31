@@ -1,0 +1,9 @@
+<form name="form" novalidate>
+	<fieldset>
+	   <legend>{{widget.label}}</legend> 
+		<span ng-repeat="field in widget.fields">
+			<div ng-include src="templateManager.templateUrl+field.template" style="width : {{field.size}}%" class="field_{{field.name}}" ng-class="{sameLine: field.sameLine}">
+			</div>
+		</span>
+	</fieldset>
+</form>

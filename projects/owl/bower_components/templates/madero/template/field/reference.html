@@ -1,0 +1,8 @@
+<div ng-show="field.isVisible">
+	<label for="{{field.name}}">
+	    {{field.label|i18n:words:lang}}
+	</label>
+	<span>
+		<input zh-events zh-validate zh-reference ng-readonly="field.readOnly" name="{{field.name}}" id="{{field.name}}" type="hidden" ng-model="widget.currentRow[field.name]"/>
+	</span>
+</div>

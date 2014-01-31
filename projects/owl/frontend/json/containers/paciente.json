@@ -1,0 +1,135 @@
+{
+    "id": 0,
+    "name": "paciente",
+    "label": "paciente",
+    "height" : "100%",
+    "isVisible": true,
+    "template": "container/window.html",
+    "events": [
+    ],
+    "widgets": [
+        {
+            "id": 1,
+            "name": "paciente",
+            "label": "Paciente",
+            "isVisible": true,
+            "events" : [],
+            "template": "widget/list_mobile.html",
+            "actions": [
+                {
+                    "label": "obito",
+                    "name": "obito",
+                    "isVisible": false,
+                    "showAsAction": "always",
+                    "icon" : "contacts24",
+                    "events": [
+                        {
+                            "name": "ActionEvent",
+                            "code" : "openWindow('list');",
+                            "id": 1
+                        }
+                    ]
+                },
+                {
+                    "label": "alta",
+                    "name": "alta",
+                    "isVisible": false,
+                    "showAsAction": "always",
+                    "icon" : "contacts24",
+                    "events": [
+                        {
+                            "name": "ActionEvent",
+                            "code" : "openWindow('list');",
+                            "id": 2
+                        }
+                    ]
+                }
+            ],
+            "fields": [
+                {
+                    "name": "CDPACIENTE",
+                    "label": "CDPACIENTE",
+                    "size": 22,
+                    "class": 12,
+                    "sameLine": true,
+                    "isVisible": true,
+                    "readOnly": false,
+                    "template": "field/text.html"
+                },
+                {
+                    "name": "NMPACIENTE",
+                    "label": "NMPACIENTE",
+                    "size": 22,
+                    "class": 12,
+                    "sameLine": true,
+                    "isVisible": true,
+                    "readOnly": false,
+                    "template": "field/text.html"
+                },
+                {
+                    "name": "CDANDAR",
+                    "label": "CDANDAR",
+                    "size": 22,
+                    "class": 12,
+                    "sameLine": true,
+                    "isVisible": true,
+                    "readOnly": false,
+                    "template": "field/text.html"
+                },
+                {
+                    "name": "CDLEITO",
+                    "label": "CDLEITO",
+                    "size": 22,
+                    "class": 12,
+                    "sameLine": true,
+                    "isVisible": true,
+                    "readOnly": false,
+                    "template": "field/text.html"
+                },
+                {
+                    "name": "NMDIAGNOST",
+                    "label": "NMDIAGNOST",
+                    "size": 22,
+                    "class": 12,
+                    "sameLine": true,
+                    "isVisible": true,
+                    "readOnly": false,
+                    "template": "field/text.html"
+                }
+            ],
+            "grid": {
+                "label": "Pacientes",
+                "columns": [
+                    {
+                        "name": "NMPACIENTE",
+                        "isVisible": true,
+                        "label": "Digite o nome do paciente",
+                        "formatter": null,
+                        "hasTemplate": false
+                    },
+                    {
+                        "name": "CDANDAR",
+                        "isVisible": true,
+                        "label": "Andar: ",
+                        "formatter": null,
+                        "hasTemplate": false
+                    },
+                    {
+                        "name": "CDLEITO",
+                        "isVisible": true,
+                        "label": "Leito: ",
+                        "formatter": null,
+                        "hasTemplate": false
+                    },
+                    {
+                        "name": "NMDIAGNOST",
+                        "isVisible": true,
+                        "label": "Diagnóstico: ",
+                        "formatter": null,
+                        "hasTemplate": false
+                    }
+                ]
+            }
+        }
+    ]
+}

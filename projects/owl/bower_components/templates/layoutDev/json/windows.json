@@ -1,0 +1,589 @@
+{
+    "zeedhi_project" : {
+        "name" : "company",
+        "label" : "Empresa",
+        "menuTemplate" : "menu/menu.html",
+        "mainWindow" : "NB_empresa",
+        "menuChildTemplate":"menu/menu_child.html",
+        "menus" :[
+            {
+                "label":"Filial",
+                "windowName":"NB_filial",
+                "hasChild":false
+            },
+            {
+                "label":"Pedido Form",
+                "windowName":"NB_PEDIDO_ITEM_FORM",
+                "hasChild":false
+            },
+            {
+                "label":"Fim",
+                "hasChild":true,
+                "menus" : [
+                    {
+                        "label":"Teste",
+                        "hasChild":false,
+                        "windowName":"NB_empresa",
+                        "menus" :[
+                            {
+                                "label":"Teste 1.1",
+                                "hasChild":false
+                            }
+                        ]
+
+                    },
+                    {
+                        "label":"Teste 1",
+                        "hasChild":true,
+                        "windowName":"NB_filial",
+                        "menus" :[
+                            {
+                                "label":"Teste 1.1",
+                                "hasChild":false
+                            }
+                        ]
+
+                    }
+
+                ]
+            }
+        ]
+    },
+    "NB_empresa":
+    {
+        "id":1003475497,
+        "name":"NB_empresa",
+        "label":"Empresa",
+        "template": "container/window.html",
+        "tabs":[
+            {
+                "id":null,
+                "name":"NB_empresa",
+                "template":"widget/grid_form.html",
+                "formTemplate" : "form.html",
+                "fields":[
+                    {
+                        "name":"id",
+                        "label":"word_1",
+                        "template":"field/text.html",
+                        "mask" : {"type":"float","params": {"symbol":"R$","precision":3}},
+                        "validations" : {
+                            "min" : {
+                                "limit" : 10
+                            },
+                            "max" : {
+                                "value" : 11
+                            }
+                        },
+                        "events" : [
+                            {
+                                "name" : "FieldOnChange",
+                                "methodName" : "empresa/save",
+                                "id":1
+                            }
+                        ]
+                    },
+                    {
+                        "name":"nome",
+                        "label":"word_2",
+                        "template":"field/text.html",
+                        "events" : [{
+                            "name": "FieldOnChange",
+                            "methodName": "empresa/save"
+                        }],
+                        "mask" : {
+                            "type" : "currency",
+                            "params" : {
+                                "precision" : 2,
+                                "symbol" : "R$"
+                            }
+                        }
+                    },
+                    {
+                        "name":"total",
+                        "label":"word_2",
+                        "template":"field/progress.html"
+                    },
+                    {
+                        "name":"password",
+                        "label":"Senha",
+                        "events" : [{
+                            "name": "FieldOnChange",
+                            "code": "alert(\"Nine hours\");"
+                        }]
+                        ,
+                        "template":"field/password.html"
+                    },
+                    {
+                        "name":"text",
+                        "label":"word_2",
+                        "template":"field/text_area.html"
+                    },
+                    {
+                        "name":"data1",
+                        "label":"word_7",
+                        "mask": {"type":"date"},
+                        "template":"field/date.html",
+                        "validations" : {
+                            "dateIsValid" : {}
+                        }
+                    },
+                    {
+                        "name":"data2",
+                        "label":"word_7",
+                        "mask": {"type":"datetime"},
+                        "template":"field/date.html",
+                        "validations" : {
+                            "dateTimeIsValid" : {},
+                            "dateGreaterThan" : {
+                                "minimumDate" : "28/06/2013"
+                            },
+                            "dateLessThan" : {
+                                "maximumDate" : "28/06/2013"
+                            },
+                            "hourGreaterThan" : {
+                                "minimumHour": "00/00/00 10:00:00"
+                            },
+                            "hourLessThan" : {
+                                "maximumHour": "00/00/00 10:00:00"
+                            }
+                        }
+                    },
+                    {
+                        "name":"saveS",
+                        "label":"word_3",
+                        "template":"field/button.html"
+                    }
+                    ,
+                    {
+                        "name":"raw",
+                        "label":"word_3",
+                        "template":"field/static_text.html"
+                    }                    
+                ],
+                "actions":[],
+                "grid":
+                {
+                    "label":"Empresa",
+                    "columns":
+                            [
+                                {
+                                    "name":"id",
+                                    "label":"Id",
+                                    "formatter":null,
+                                    "hasTemplate":false
+                                },
+                                {
+                                    "name":"nome",
+                                    "label":"Nome",
+                                    "formatter":null,
+                                    "hasTemplate":false
+                                },
+                                {
+                                    "name":"total",
+                                    "label":"Total",
+                                    "template" : "column/progressColumn.html",
+                                    "hasTemplate": true
+                                }
+                            ]
+                },
+                "label":"Empresa"
+            }
+        ]
+    },
+    "NB_filial":
+    {
+        "id":1002,
+        "name":"NB_filial",
+        "label":"Filial",
+        "template": "container/window.html",
+        "tabs":[
+            {
+                "id":null,
+                "name":"NB_filial",
+                "template":"widget/grid_list.html",
+                "formTemplate" : "widget/form.html",
+                "fields":[
+                    {
+                        "name":"id",
+                        "label":"word_4",
+                        "template":"field/number.html"
+                    },
+                    {
+                        "name":"nome",
+                        "label":"word_5",
+                        "template":"field/text.html"
+                    },
+                    {
+                        "name":"save",
+                        "label":"word_3",
+                        "template":"field/button.html"
+                    },
+                    {
+                        "name":"save",
+                        "label":"word_6",
+                        "template":"field/button.html"
+                    }
+                ],
+                "actions":[],
+                "grid":
+                {
+                    "label":"Filial",
+                    "columns":
+                            [
+                                {
+                                    "name":"id",
+                                    "label":"Id Filial",
+                                    "help":"Codigo unico da filial",
+                                    "formatter":null,
+                                    "hasTemplate": false
+                                },
+                                {
+                                    "name":"nome",
+                                    "label":"Nome ",
+                                    "formatter":null,
+                                    "hasTemplate": false
+                                }
+                            ]
+                },
+                "label":"Filial"
+            }
+        ]
+    },
+    "NB_PEDIDO_ITEM_FORM":{
+        "id":1061601194,
+        "name":"NB_pedido_item_form",
+        "label":"Mesa Item de Pedido",
+        "template": "container/window.html",
+        "tabs":[
+            {
+                "id":null,
+                "name":"NB_pedido_item",
+                "type":"FORM",
+                "template": "widget/grid_form.html",
+                "formTemplate" : "form.html",
+                "fields":[
+                    {
+                        "id":"4688",
+                        "name":"id",
+                        "label":"Item",
+                        "type":"HIDDEN",
+                        "template":"field/hidden.html",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":true
+                    },
+                    {
+                        "id":"4704",
+                        "name":"preco",
+                        "label":"Pre\u00e7o",
+                        "template":"field/number.html",
+                        "type":"HIDDEN",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4690",
+                        "name":"quantidade",
+                        "label":"Quantidade",
+                        "template":"field/number.html",
+                        "type":"NUMBER",
+                        "data":[],
+                        "sameLine":false,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"1",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4691",
+                        "name":"pedido_id",
+                        "template":"field/text.html",
+                        "label":"Pedido",
+                        "type":"HIDDEN",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4692",
+                        "name":"produto_id",
+                        "label":"Produto",
+                        "template":"field/list.html",
+                        "type":"LIST",
+                        "data":[
+                            {
+                                "description":"Cerveja Antarctica 600 ml",
+                                "value":"1"
+                            },
+                            {
+                                "description":"Cerveja Brahma 600 ml",
+                                "value":"2"
+                            },
+                            {
+                                "description":"Cerveja Bohemia 600 ml",
+                                "value":"3"
+                            },
+                            {
+                                "description":"Chopp Claro 300 ml",
+                                "value":"4"
+                            },
+                            {
+                                "description":"Chopp Escuro 300 ml",
+                                "value":"5"
+                            },
+                            {
+                                "description":"Cerveja Skol 600 ml",
+                                "value":"6"
+                            },
+                            {
+                                "description":"Cerveja Original 600 ml",
+                                "value":"7"
+                            },
+                            {
+                                "description":"Cerveja Skol Long Neck",
+                                "value":"8"
+                            },
+                            {
+                                "description":"Cerveja Original Long Neck",
+                                "value":"9"
+                            },
+                            {
+                                "description":"Fritas",
+                                "value":"10"
+                            },
+                            {
+                                "description":"Fritas com Mussarela",
+                                "value":"11"
+                            },
+                            {
+                                "description":"Mandioca Frita",
+                                "value":"12"
+                            },
+                            {
+                                "description":"Carne de Sol",
+                                "value":"13"
+                            },
+                            {
+                                "description":"Carne de Sol c\/ Mandioca",
+                                "value":"14"
+                            },
+                            {
+                                "description":"Guaran\u00e1 Antarctica lata 350 ml",
+                                "value":"15"
+                            },
+                            {
+                                "description":"Guaran\u00e1 Antarctica Zero lata 350 ml",
+                                "value":"16"
+                            },
+                            {
+                                "description":"Pizza Margherita",
+                                "value":"17"
+                            },
+                            {
+                                "description":"Pizza Calabresa",
+                                "value":"18"
+                            },
+                            {
+                                "description":"Suco de Laranja",
+                                "value":"19"
+                            },
+                            {
+                                "description":"Suco de Abacaxi",
+                                "value":"20"
+                            },
+                            {
+                                "description":"Caipirinha",
+                                "value":"21"
+                            },
+                            {
+                                "description":"Caipivodka",
+                                "value":"22"
+                            },
+                            {
+                                "description":"Coxinha",
+                                "value":"23"
+                            },
+                            {
+                                "description":"Empada",
+                                "value":"24"
+                            },
+                            {
+                                "description":"Quibe",
+                                "value":"25"
+                            },
+                            {
+                                "description":"Servi\u00e7o",
+                                "value":"26"
+                            },
+                            {
+                                "description":"Desconto",
+                                "value":"27"
+                            }
+                        ],
+                        "sameLine":true,
+                        "size":"40",
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4693",
+                        "name":"combo_id",
+                        "template":"field/radio.html",
+                        "label":"Combo",
+                        "type":"LIST",
+                        "data":[
+                            {
+                                "description":"Promo 01 - 1 Fritas \/ 4 Chopps",
+                                "value":"1"
+                            },
+                            {
+                                "description":"Promo 02  - 1 Pizza \/ 4 Chopps",
+                                "value":"2"
+                            },
+                            {
+                                "description":"Promo 03 - 1 Carne de Sol \/ 4 Chopps",
+                                "value":"3"
+                            }
+                        ],
+                        "sameLine":true,
+                        "size":"40",
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4910",
+                        "name":"indica_combo",
+                        "template":"field/text.html",
+                        "label":"Indica_combo",
+                        "type":"TEXT",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4911",
+                        "name":"indica_cancelado",
+                        "template":"field/text.html",
+                        "label":"Indica_cancelado",
+                        "type":"TEXT",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4912",
+                        "name":"observacao",
+                        "template":"field/text.html",
+                        "label":"Observacao",
+                        "type":"TEXT",
+                        "data":[],
+                        "sameLine":true,
+                        "size":20,
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    },
+                    {
+                        "id":"4545",
+                        "name":"combo_id",
+                        "template":"field/mult.html",
+                        "label":"Combo",
+                        "type":"LIST",
+                        "data":[
+                            {
+                                "description":"Promo 01 - 1 Fritas \/ 4 Chopps",
+                                "value":"1"
+                            },
+                            {
+                                "description":"Promo 02  - 1 Pizza \/ 4 Chopps",
+                                "value":"2"
+                            },
+                            {
+                                "description":"Promo 03 - 1 Carne de Sol \/ 4 Chopps",
+                                "value":"3"
+                            }
+                        ],
+                        "sameLine":true,
+                        "size":"40",
+                        "labelPosition":0,
+                        "defaultValue":"",
+                        "readOnly":false
+                    }                    
+                ],
+                "commands":[],
+                "actions":[
+                    {
+                        "id":"NB_SALVAR_ITEM_PEDIDO",
+                        "methodName":"nb_pedido_item_formnb_pedido_itemnb_salvar_item_pedido",
+                        "label":"<img src='img\/save.png' \/>Salvar",
+                        "type":"ONLINE",
+                        "size":null,
+                        "sameLine":null
+                    }
+                ],
+                "grid": {
+                    "methodName":"editItem",
+                    "label":"Item de Pedido",
+                    "columns":[
+                        {
+                            "name":"id",
+                            "label":"Item",
+                            "formatter":null,
+                            "hasTemplate":false
+                        },
+                        {
+                            "name":"preco",
+                            "label":"Pre\u00e7o",
+                            "formatter":null,
+                            "hasTemplate":false
+                        },
+                        {
+                            "name":"quantidade",
+                            "label":"Quantidade",
+                            "formatter":null,
+                            "hasTemplate":false
+                        },
+                        {
+                            "name":"pedido_id",
+                            "label":"Pedido",
+                            "formatter":null,
+                            "hasTemplate":false
+                        },
+                        {
+                            "name":"produto_id",
+                            "label":"Produto",
+                            "formatter":null,
+                            "hasTemplate":false
+                        },
+                        {
+                            "name":"observacao",
+                            "label":"Observacao",
+                            "formatter":null,
+                            "hasTemplate":false
+                        }
+                    ]
+                },
+                "label":"Pedido Item"
+            }
+        ]
+    }
+}

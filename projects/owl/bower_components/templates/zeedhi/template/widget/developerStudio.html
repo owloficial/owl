@@ -1,0 +1,80 @@
+<section class="zh-widget widget-{{widget.name}}"  zh-widget-events>
+
+<div ng-include src="templateManager.templateUrl+'component/actionsGrid.html'" class="zh-actions"></div>
+
+		<!-- Definition of the list of items to be searched. -->
+		<div style="height: 75%">
+			<!-- 
+				Input field used to filter the results of the list generated below.
+			-->
+			<input  name="filter_input" data-ng-model='widget.filterCriteria' placeholder="Pequisar {{widget.label}}" class="zh-mobile-field-search" />
+
+			<!-- 
+				This division contains the scroller, which is a list of all the items
+				that will be displayed.
+			-->
+			<div class="zh-inner" style="height: 75%">
+				<div class="zh-scroller" zh-scroller style="height: 100%; overflow: hidden">
+
+				<!--
+					ng-repeat="row in widget.dataSource.data"
+
+						This lists contains all the items to be displayed.
+						The results are displayed by applying the filterCriteria filter,
+						so that only results that begin what has been placed 
+						in the filter_input field will be shown.
+				-->
+					<li ng-repeat="row in widget.dataSource.data | startsWith: widget.grid.columns[0].name:widget.filterCriteria" class="zh-listItem" zh-grid-row ng-click="setFormData(widget, $index);">
+
+						<!-- 
+							This ng-repeat is used to display multiple terms for every search 
+							item, should it be necessary.
+						-->
+						<div ng-repeat="column in widget.grid.columns">
+							{{row[column.name]}} 
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+	<!-- End of the list of items to be searched. -->
+
+	<!--
+		If needed, this reserves a space for buttons to save, load, create, delete,
+		or preform other functions.
+	-->
+	<div style="height: 20%">
+		<div class="zh-inner">
+		<fieldset>
+					<!--
+						ng-repeat="field in widget.fields"
+					
+						This generates  all the buttons that need to be displayed.
+					-->
+					<div ng-repeat="field in widget.fields" ng-include src="templateManager.templateUrl+field.template" class="field_{{field.name}} form-col col-{{field.class}}" ng-class="{sameLine: field.sameLine}">
+					</div>
+				</fieldset>	
+		</div>
+	</div>		
+</section>
+
+<!--div class="zh-scroller" zh-scroller style="height: 100%">
+			<table cellspacing="0" cellpadding="0" class="table" width="100%">
+				<thead>
+					<tr>
+					< </article> {{column.label}} should be here-->
+					<!--<th width="40%" style="width:40%;">
+							<div index="{{$index}}">
+								<span class="icon arrowBottom12"></span>
+								<span class="text">This is a list, I guess?</span>
+							</div>
+						</th>>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in widget.dataSource.data" class="cell{{$index%2 +1}}" zh-grid-row>
+							<div>{{row[column.name]}}</div>
+					</tr>
+				</tbody>
+			</table>
+			</div-->

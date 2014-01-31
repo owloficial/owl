@@ -1,0 +1,35 @@
+<div class="controls controls-row">
+	<label>Template</label>
+ 	<select class="span12" ng-model="configWidget.template_id" ng-options="widget.template_id as widget.name for widget in templates.widgets"></select>
+ 	<label>Datasource</label>
+ 	<select class="span12" ng-model="configWidget.datasource_id" ng-options="datasource.name for datasource in datasources"></select>
+    <label>Actiongroup</label>
+    <select class="span12" ng-model="configWidget.actiongroup_id" ng-options="actiongroup.actiongroup_id as actiongroup.name for actiongroup in actiongroups"></select>
+ 	<label>Widget Type</label>
+    <select class="span12" ng-model="configWidget.widget_type" ng-options="widgetType.widget_type_id as widgetType.name for widgetType in templates.widgetTypes"></select>
+ 	<label>Column Template Number</label>
+ 	<input class="span12" type="text" ng-model="configWidget.column_template_number"/>
+ 	<label>Label</label>
+ 	<input class="span12" type="text" ng-model="configWidget.label"/>
+ 	<label>Name</label>
+ 	<input class="span12" type="text" ng-model="configWidget.name"/>
+ 	<label>Description</label>
+ 	<input class="span12" type="text" ng-model="configWidget.description"/>
+ 	<label>Help</label>
+ 	<input class="span12" type="text" ng-model="configWidget.help"/>
+ 	<label>Is Active</label>
+    <select class="span12" ng-model="configWidget.isactive">
+        <option value=""></option>
+        <option value="Y">Yes</option>
+        <option value="N">No</option>
+    </select>
+ 	<label>Sequence</label>
+ 	<input class="span12" type="number" ng-model="configWidget.seqno"/>	
+
+    <button class="btn btn-warning btn-mini" type="button" ng-click="addField();">Add Field</button>    
+    <ul ng-repeat="field in configWidget.fields">
+      <li>{{field.label}}<button class="btn-info" ng-click="configureField(field);">Edit</button></li>
+    </ul> 
+
+ 	<button class="btn btn-success btn-mini" type="button" ng-click="saveWidgetConfig();">Save</button>
+</div>

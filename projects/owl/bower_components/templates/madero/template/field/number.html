@@ -1,0 +1,16 @@
+<span>
+    <span ng-show="field.isVisible">
+        <input zh-style zh-mask zh-events zh-validate ng-readonly="field.readOnly" 
+               class="{{field.name}}"
+               name="{{field.name}}" id="{{field.name}}" maxlength="{{field.maxlength}}"
+               type="number" ng-model="widget.currentRow[field.name]" data-row='{{widget.currentRow}}'
+               data-value='{{widget.currentRow[field.name]}}' placeholder="{{field.label|i18n:words:lang}}"/>
+        <span class="help-block">
+            <span ng-show="widget.currentRow.$error[field.name].length>0">
+                <span class="label label-warning" ng-repeat="error in widget.currentRow.$error[field.name]">
+                    {{error.message}}
+                </span>
+            </span>
+        </span>
+    </span>
+</span>

@@ -1,0 +1,46 @@
+<aside class="zh-menuContainer slideRight" zh-slide-menu>
+
+	<section class="zh-menuSearch">
+		<input type="text" ng-model="menuFilter" class="searchInput">
+	</section>
+	
+	<section class="zh-menu">
+		<!-- <section class="zh-user">
+			<img src="../../templates/zeedhi/images/user.jpg" class="zh-userImg" />
+			<span class="zh-userName">
+				Lucas Azevedo
+			</span>
+		</section> -->
+		<div class="zh-scroller" zh-scroller style="height: 100%">
+			<div zh-menu-drop-dowm >
+				<nav class="zh-menu-dropdowm">
+					<ul class="zh-menu-dropdowm-container" ng-repeat="menu in templateManager.project.menus">
+						
+						<li ng-if="menu.grouper" class="zh-menu-item zh-menu-grouper">
+						<span class="label">{{menu.name}}</span> 	
+						</li>
+
+						<li ng-if="!menu.hasChild" class="zh-menu-item">
+							<a href="#" ng-click="openWindow(menu.windowName,menu.isWizard)">
+								<i class="icon {{menu.icon}}"></i>
+								<span class="label">{{menu.label}}</span>
+							</a> 	
+						</li>
+						
+						<li ng-if="menu.hasChild" class="zh-menu-dropdowm-item">
+							<a href="#">
+								<span class="push">{{menu.menus.length}} </span>
+								<i class="icon {{menu.icon}}"></i>
+								<span class="label">{{menu.label}} </span>
+							</a> 	
+							<ul class="zh-menu-dropdowm-item group" ng-include="templateManager.templateUrl+templateManager.project.menuChildTemplate"></ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+	<div class="zh-logoBy">
+		<img src="../../bower_components/templates/zeedhi/images/logoBy.png" class="zh-logoByImg" />
+	</div>
+</aside>

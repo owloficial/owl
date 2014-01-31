@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "_cacheHeaders": {
+    "ETag": "\"a0040-32b565-4f0ae9278e354\"",
+    "Last-Modified": "Fri, 24 Jan 2014 03:01:19 GMT",
+    "Content-Length": "3323237",
+    "Content-Type": "application/x-gzip"
+  },
+  "_release": "e-tag:a0040-32b",
+  "_source": "http://192.168.122.52/cdn/backend.tar.gz",
+  "_target": "*",
+  "_originalSource": "http://192.168.122.52/cdn/backend.tar.gz"
+}

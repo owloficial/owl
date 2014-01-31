@@ -1,0 +1,17 @@
+<form name="form" style="height: {{widget.heigth}}%">
+	<fieldset style="height: 100%">
+		<legend>{{widget.label}}</legend> 
+        <span ng-repeat="field in widget.fields">
+            <!-- <div ng-repeat="template in templates.fields|getTemplate:'template_id':field.template_id">
+                {{field.template_id}} - {{template.template_id}}
+            </div> -->
+            <div ng-include src="getTemplate('fields', field.template_id)"></div>
+        </span>
+
+        <!-- <span ng-repeat="field in widget.fields">
+			<div ng-repeat="template in templates.fields|filter:{template_id:field.template_id}">
+				<div ng-include src="template.template"></div>
+			</div>
+		</span> -->
+	</fieldset>
+</form>

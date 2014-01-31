@@ -1,0 +1,62 @@
+<div zh-scroller id="container" style="height:100%" zh-widget-events>
+  <div ng-controller='TodoController'>
+    <div class="sprint-container">  
+    <div ng-include src="templateManager.templateUrl+'component/actionsGrid.html'" class="zh-actions"></div>
+        <span data-ng-init='field = widget.fields[0];'  data-ng-include="templateManager.templateUrl+'field/list_mobile.html'">
+
+        </span>
+       <div class="sprint-container-header">
+            <div class="header-todo">Não apropriada</div>
+            <div class="header-inprogress">Em andamento</div>
+            <div class="header-done">Finalizado</div>
+        </div>
+        <div class="story-container" ng-repeat="story in widget.dataSource.data[0].story">
+            <div zh-update-scroller class="story-container-header">{{story.TITLE}}</div>
+            <div class="story-container-body">
+                <div class="subtask-container subtask-todo">
+                    <div class="subtask-data" ng-repeat="subtask in widget.dataSource.data[0].subtask | filter:{STAGE: 'P', STORY : story.ID} ">
+                        <div class="subtask-buttons hide">
+                            <a data-ng-init='field = widget.fields[1]; widget.currentRow = subtask;' ng-click="subtask.STAGE = 'A';widget.currentRow = subtask; setActiveSubtask(subtask.ID);"data-zh-events href="#">
+                                iniciar
+                            </a>
+                           
+                        </div>
+                        <div class="subtask-container-header">{{subtask.TITLE}}</div>
+                        <div class="subtask-container-body">
+                            {{subtask.DESCR}}
+                        </div>
+                    </div>  
+                </div>
+                <div class="subtask-container subtask-inprogress">
+                    <div class="subtask-data" ng-repeat="subtask in widget.dataSource.data[0].subtask  | filter:{STAGE: ['A', 'I'], STORY : story.ID}:filter" ng-class="{'subtask-active': activeSubtask == subtask.ID}">
+                        <div class="subtask-buttons hide">
+                        <div ng-if="subtask.STAGE == 'A' "><a data-ng-init="setActiveSubtask(subtask.ID)" ></a> </div>
+
+                            <a class="button-play" data-ng-init='field = widget.fields[1]; widget.currentRow = subtask;' ng-click="subtask.STAGE = 'A';widget.currentRow = subtask; setActiveSubtask(subtask.ID);"data-zh-events href="#">
+                                Iniciar
+                            </a>
+                            <a class="button-pause" data-ng-init='field = widget.fields[2]; widget.currentRow = subtask;' ng-click="subtask.STAGE = 'I';widget.currentRow = subtask; setActiveSubtask('');"data-zh-events href="#">
+                                Pausar
+                            </a>
+                            <a data-ng-init='field = widget.fields[3]; widget.currentRow = subtask;' ng-click="subtask.STAGE = 'C';widget.currentRow = subtask; setActiveSubtask('');"data-zh-events href="#">
+                                Concluir
+                            </a>
+                        </div>
+                        <div class="subtask-container-header">{{subtask.TITLE}}</div>
+                        <div class="subtask-container-body">
+                            {{subtask.DESCR}}
+                        </div>
+                    </div>
+                </div>
+                <div class="subtask-container subtask-done">
+                    <div class="subtask-data" ng-repeat="subtask in widget.dataSource.data[0].subtask  |  filter:{STAGE: 'C', STORY : story.ID}">
+                        <div class="subtask-container-header">{{subtask.TITLE}}</div>
+                        <div class="subtask-container-body">
+                            {{subtask.DESCR}}
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>      
+    </div>  
+</div>
