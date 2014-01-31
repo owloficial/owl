@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html ng-app="ZeedhiApp">
+    <!--<html manifest="cache.manifest">-->
+    <head>
+        <meta charset="utf-8">
+        <title>TecDiet</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../bower_components/templates/newLayout/images/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../bower_components/templates/newLayout/images/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../bower_components/templates/newLayout/images/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../bower_components/templates/newLayout/images/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="../bower_components/templates/newLayout/images/favicon.png">
+        <link rel="stylesheet" type="text/css" media="all" href="../bower_components/assets/css/style.css" />
+        <!--<link rel="stylesheet" type="text/css" href="../../../assets/specific/questionary/css/style.css" />-->
+        <script src="../bower_components/assets/dist/main.js"></script>
+        <script src="../bower_components/assets/vendor/canvasjs/canvasjs.min.js" type="text/javascript"></script>
+        <!--<script src="./js/rules.js"></script>-->
+        <script src="./js/controller.js"></script>
+        <script type="text/javascript">
+        window.templateUrl = "../bower_components/templates/zeedhi/template/";
+            window.metadataUrl = "./frontend/";
+            window.serviceUrl = "../backend/service/index.php";
+        </script>
+
+    </head>
+    <body class="zh-body" ng-controller="ZeedhiMain" zh-body>
+
+        <div class="zh-viewport"> 
+            <div class="zh-window">
+                <div class="zh-viewport">
+                    <div class="zh-page" data-header="true" data-footer="true">
+                        <header ng-include src="templateManager.templateUrl+'component/header.html'" class="zh-header"></header>
+
+                        <div class="zh-container" data-bar="true">
+                            <!--<section class="zh-bar">-->
+
+                                <!--<ul class="tabsVertical" zh-tabs-vertical>-->
+                                    <!--<li ng-repeat="item in templateManager.project.historyItems" zh-tabs-vertical-item>-->
+                                        <!--<a href="">-->
+                                            <!--{{templateManager.containers[item].label}}-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+
+                            <!--</section>-->
+                            <div class="zh-panel" ng-include src="templateManager.templateUrl+templateManager.container.template"></div>
+                        </div>
+
+                        <footer class="zh-footer" align="right"></footer>
+
+                        <div ng-show="templateManager.project.showMenu" ng-include src="templateManager.templateUrl+templateManager.project.menuTemplate"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
