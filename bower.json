@@ -1,0 +1,23 @@
+{
+  "name": "owl",
+  "version": "0.0.0",
+  "authors": [
+    "OWL <owl.oficial@gmail.com>"
+  ],
+  "directory": "libs",
+  "devDependencies": {    
+    "assets": "http://192.168.122.52/cdn/assets.tar.gz",
+    "templates": "http://192.168.122.52/cdn/templates.tar.gz",
+    "backend": "http://192.168.122.52/cdn/backend.tar.gz"
+  },
+
+  "main": "js/rules.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
