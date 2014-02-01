@@ -1,5 +1,0 @@
-<label class="label_questionary" data-ng-bind='question.description'></label>
-<span data-ng-if='question.error' data-ng-hide='!!questionary.answer[question.name]["value"]'>
-    <span class="error">Preencha a questão</span>
-</span>
-<input type="text" data-ng-model='questionary.answer[question.name]["value"]' autocomplete="on" placeholder="{{question.description}}" class="input"/>

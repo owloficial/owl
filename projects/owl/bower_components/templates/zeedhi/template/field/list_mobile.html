@@ -1,6 +1,0 @@
-<label>
-	{{field.label|i18n:words:lang}}
-</label>
-<select  data-zh-style data-zh-events data-zh-events name="{{field.name}}" id="{{field.name}}" data-ng-model="widget.currentRow[field.name]" data-ng-options="item[field.valueField] as item[field.descriptionField]  for item in field.dataSource.data">
-	<option value='' data-ng-if='field.labelToAll'>{{field.labelToAll|i18n:words:lang}}</option>
-</select>

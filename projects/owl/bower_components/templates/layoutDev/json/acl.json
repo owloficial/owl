@@ -1,7 +1,0 @@
-{
-	acl : {
-		1 : {
-			"menu" : [{name:"customer", type : "allow"}]
-		}
-	}
-}

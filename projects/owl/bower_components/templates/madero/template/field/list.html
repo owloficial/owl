@@ -1,8 +1,0 @@
-<label>
-	{{field.label|i18n:words:lang}}
-</label>
-<select  zh-style zh-events ui-select2 zh-events name="{{field.name}}" id="{{field.name}}"  type="text" ng-model="widget.currentRow[field.name]">
-	<option></option>
-    <option ng-repeat="item in field.dataSource.data" value="{{item[field.valueField]}}">{{item[field.descriptionField]}}</option>
-</select>
-<!--<span class="help-block">Example block-level help text here.</span>-->
